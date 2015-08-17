@@ -1,0 +1,39 @@
+<!doctype html>
+<body>
+<h3>How Many Iterations to FizzBuzz?</h3>
+<input id="count"/>
+<button id="go">Go!</button>
+
+<script type="text/javascript">
+  function Ready(fn) {
+    if (document.readyState != 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+
+  Ready(function onReady() {
+    var btnGo = document.querySelector('#go');
+
+    btnGo.addEventListener('click', function(e) {
+      var inputCount = document.querySelector('#count');
+      CalculateFizzBuzz(inputCount.value);
+    });
+  });
+
+
+  function CalculateFizzBuzz(count) {
+    var i, answer;
+
+    document.body.innerText = '';
+    for (i = 0; i < count; i++) {
+      answer = '';
+
+      if (i % 3 === 0) answer += 'fizz';
+      if (i % 5 === 0) answer += 'buzz';
+      if (answer === '') answer = i;
+
+      document.writeln('<p>' + answer + '</p>')
+    }
+  }
+</script>
+</body>
